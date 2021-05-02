@@ -13,6 +13,7 @@ class tic_tac_toe_3 : public tic_tac_toe
 {
 public:
     tic_tac_toe_3() : tic_tac_toe(3){}
+    tic_tac_toe_3(std::vector<std::string>p, string winner) : tic_tac_toe(p,winner){}
 
 private:
     bool check_column_win() override;

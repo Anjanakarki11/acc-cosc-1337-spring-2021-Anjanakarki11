@@ -13,11 +13,13 @@ public:
     //void display_board()const ;
     tic_tac_toe(){};
     tic_tac_toe(int size) : pegs(size*size, " "){};
+    tic_tac_toe(std::vector<std::string> p, std::string w) : pegs(p), winner(w) {}
     void mark_board(int position);
     void start_game(string first_player);
     void get_player();
     bool game_over();
     string get_winner(){return winner;};
+    std::vector<std::string> get_pegs()const{return pegs;}
     friend std::ostream& operator<<(std::ostream& out, const tic_tac_toe& game1);
     friend std::istream& operator>>(std::istream& in, tic_tac_toe& game1);
 

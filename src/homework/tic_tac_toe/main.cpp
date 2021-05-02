@@ -2,6 +2,7 @@
 #include "tic_tac_toe_manager.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include "tic_tac_toe_data.h"
 #include<iostream>
 #include<memory>
 #include<string>
@@ -18,8 +19,10 @@ int main()
 	int c = 0;
 	int board_choice;
 	string choice;
+	tic_tac_toe_data data;
+	//tic_tac_toe_manager manager(data);
 	std::unique_ptr<tic_tac_toe> game1;
-	tic_tac_toe_manager manager;
+	tic_tac_toe_manager manager(data);
 		
 	string continue_ = "y";
 	while (continue_ == "y")

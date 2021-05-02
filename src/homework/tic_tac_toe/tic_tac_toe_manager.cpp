@@ -5,6 +5,15 @@
 using std::cout;
 using namespace std;
 
+tic_tac_toe_manager::tic_tac_toe_manager(tic_tac_toe_data d) : data{d}
+{
+    games = data.get_games();
+    for (auto& game1 : games)
+    {
+        update_winner_count(game1->get_winner());
+    }
+}
+
 void tic_tac_toe_manager::save_game(std::unique_ptr<tic_tac_toe>& b)
 {
     //games.push_back(std::move(b));
@@ -43,4 +52,9 @@ void tic_tac_toe_manager::update_winner_count(std::string winner)
     {
         ties += 1;
     }
+}
+tic_tac_toe_manager::~tic_tac_toe_manager()
+{
+    std::cout<<"\n save games\n";
+    data.save_games(games);
 }
